@@ -10,3 +10,5 @@ TEMPORADA_ATUAL = '2024-25'
 JOGADOR_1 = 'Nikola Jokic'
 JOGADOR_2 = 'Michael Porter Jr'
 JOGADOR_3 = 'Jamal Murray'
+
+RESULTADOS_PATH = '../resultados'
