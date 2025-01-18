@@ -1,7 +1,6 @@
 from nba_api.stats.static import teams
-from nba_api.stats.endpoints import leaguestandings
+from nba_api.stats.endpoints import leaguestandings, teamgamelog
 import pandas as pd
-
 
 CONFERENCIAS = {
     "east": [
@@ -70,6 +69,13 @@ def classificar_por_vitorias(data_set):
 
     return tabela_conferencias
 
-def resgatar_clissificao_atual():
-    times = resgatar_times_por_temporada("2024-25")
+def resgatar_classificacao_por_temporada(temporada):
+    times = resgatar_times_por_temporada(temporada)
     return classificar_por_vitorias(times)
+
+def obter_jogos_por_time_e_temporada(nome_do_time, temporada):
+    time = obter_time(nome_do_time)
+    time_id = time['id']
+
+    dados_temporada = teamgamelog.TeamGameLog(team_id=time_id, season=temporada)
+    return dados_temporada.get_data_frames()[0]
