@@ -7,4 +7,4 @@ TIME_ID = time['id']
 TEMPORADA_ANTERIOR = '2023-24'
 TEMPORADA_ATUAL = '2024-25'
 
-RESULTADOS_PATH = '../resultados'
+RESULTADOS_PATH = '../resultados/parte_1'
