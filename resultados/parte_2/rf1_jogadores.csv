@@ -1,4 +1,4 @@
-Nome,Altura,Peso,Idade,Experiência,Posição,Universidade,Salário
-Nikola Jokić,6-11,284,,9,Center,,"51,42 milhões USD"
-Michael Porter Jr.,6-10,218,,5,Forward,,"35,08 milhões USD"
-Jamal Murray,6-4,215,,7,Guard,,"36,02 milhões USD"
+ID,Nome,Altura,Peso,Idade,Experiência,Posição,Universidade,Salário
+203999,Nikola Jokić,6-11,284,,9,Center,,"51,42 milhões USD"
+1629008,Michael Porter Jr.,6-10,218,,5,Forward,,"35,08 milhões USD"
+1627750,Jamal Murray,6-4,215,,7,Guard,,"36,02 milhões USD"
