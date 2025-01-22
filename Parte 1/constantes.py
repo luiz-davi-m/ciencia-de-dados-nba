@@ -1,4 +1,4 @@
-from nba_api_utils import obter_time
+from nba_api_time_utils import obter_time
 
 NOME_TIME = 'Denver Nuggets'
 time = obter_time(NOME_TIME)
