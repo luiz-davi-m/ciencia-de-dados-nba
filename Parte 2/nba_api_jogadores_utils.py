@@ -186,5 +186,26 @@ def calcular_percentual_abaixo_da_moda(nome_jogador, moda_pontos, moda_rebotes, 
     print("-" * 40)
 
 
+def calcular_desvio_padrao_jogador(nome_jogador, arquivo_csv):
+    df = pd.read_csv(arquivo_csv)
+
+    df_jogador = df[df["Jogador"] == nome_jogador].copy()
+
+    if df_jogador.empty:
+        print(f"Jogador {nome_jogador} não encontrado no arquivo CSV!")
+        return None, None, None
+
+    df_jogador[['Pontos', 'Rebotes', 'Assistências']] = df_jogador[['Pontos', 'Rebotes', 'Assistências']].apply(pd.to_numeric)
+
+    desvio_pontos = df_jogador['Pontos'].std()
+    desvio_rebotes = df_jogador['Rebotes'].std()
+    desvio_assistencias = df_jogador['Assistências'].std()
+
+    print(f"📊 Desvio Padrão - {nome_jogador}:")
+    print(f"   🔹 Pontos: {desvio_pontos:.2f}")
+    print(f"   🔹 Rebotes: {desvio_rebotes:.2f}")
+    print(f"   🔹 Assistências: {desvio_assistencias:.2f}")
+    print("-" * 40)
+
 
 
