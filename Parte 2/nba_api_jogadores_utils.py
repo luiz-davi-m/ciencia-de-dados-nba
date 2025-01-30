@@ -118,5 +118,73 @@ def calcular_porcentagem_abaixo_mediana(nome_jogador, mediana_pontos, mediana_re
     print("-" * 40)
 
 
+def calcular_moda_jogador(nome_jogador, arquivo_csv):
+    df = pd.read_csv(arquivo_csv)
+
+    df_jogador = df[df["Jogador"] == nome_jogador].copy()
+
+    if df_jogador.empty:
+        print(f"Jogador {nome_jogador} não encontrado no arquivo CSV!")
+        return None, None, None
+
+    df_jogador[['Pontos', 'Rebotes', 'Assistências']] = df_jogador[['Pontos', 'Rebotes', 'Assistências']].apply(pd.to_numeric)
+
+    moda_pontos = df_jogador['Pontos'].mode()[0]
+    moda_rebotes = df_jogador['Rebotes'].mode()[0]
+    moda_assistencias = df_jogador['Assistências'].mode()[0]
+
+    print(f"📊 Moda de {nome_jogador}:")
+    print(f"   🔸 Moda de pontos: {moda_pontos}")
+    print(f"   🔸 Moda de rebotes: {moda_rebotes}")
+    print(f"   🔸 Moda de assistências: {moda_assistencias}")
+    print("-" * 40)
+
+    return moda_pontos, moda_rebotes, moda_assistencias
+
+
+def calcular_frequencia_moda(nome_jogador, moda_pontos, moda_rebotes, moda_assistencias, arquivo_csv):
+    df = pd.read_csv(arquivo_csv)
+
+    df_jogador = df[df["Jogador"] == nome_jogador].copy()
+
+    if df_jogador.empty:
+        print(f"Jogador {nome_jogador} não encontrado no arquivo CSV!")
+        return None, None, None
+
+    df_jogador[['Pontos', 'Rebotes', 'Assistências']] = df_jogador[['Pontos', 'Rebotes', 'Assistências']].apply(pd.to_numeric)
+
+    freq_pontos = (df_jogador['Pontos'] == moda_pontos).sum()
+    freq_rebotes = (df_jogador['Rebotes'] == moda_rebotes).sum()
+    freq_assistencias = (df_jogador['Assistências'] == moda_assistencias).sum()
+
+    print(f"📊 Frequência da Moda de {nome_jogador}:")
+    print(f"   🔹 A moda de pontos ({moda_pontos}) aparece {freq_pontos} vezes")
+    print(f"   🔹 A moda de rebotes ({moda_rebotes}) aparece {freq_rebotes} vezes")
+    print(f"   🔹 A moda de assistências ({moda_assistencias}) aparece {freq_assistencias} vezes")
+    print("-" * 40)
+
+
+def calcular_percentual_abaixo_da_moda(nome_jogador, moda_pontos, moda_rebotes, moda_assistencias, arquivo_csv):
+    df = pd.read_csv(arquivo_csv)
+
+    df_jogador = df[df["Jogador"] == nome_jogador].copy()
+
+    if df_jogador.empty:
+        print(f"Jogador {nome_jogador} não encontrado no arquivo CSV!")
+        return None, None, None
+
+    df_jogador[['Pontos', 'Rebotes', 'Assistências']] = df_jogador[['Pontos', 'Rebotes', 'Assistências']].apply(pd.to_numeric)
+
+    perc_pontos = (df_jogador['Pontos'] < moda_pontos).mean() * 100
+    perc_rebotes = (df_jogador['Rebotes'] < moda_rebotes).mean() * 100
+    perc_assistencias = (df_jogador['Assistências'] < moda_assistencias).mean() * 100
+
+    print(f"📊 Percentual de Jogos Abaixo da Moda - {nome_jogador}:")
+    print(f"   🔹 Pontos: {perc_pontos:.2f}% dos jogos")
+    print(f"   🔹 Rebotes: {perc_rebotes:.2f}% dos jogos")
+    print(f"   🔹 Assistências: {perc_assistencias:.2f}% dos jogos")
+    print("-" * 40)
+
+
 
 
