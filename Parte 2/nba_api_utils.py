@@ -13,11 +13,11 @@ def obter_time(nome):
 def salvar_dataset_csv(data_set, path):
     data_set.to_csv(path, index=False)
 
-def obter_informacoes_do_time(team_name):
-    all_teams = teams.get_teams()
-    for team in all_teams:
-        if team_name.lower() in team['full_name'].lower():
-            return {'id': team['id'], 'nome': team['full_name'], 'sigla': team['abbreviation']}
+def obter_informacoes_do_time(nome_do_time):
+    todos_times = teams.get_teams()
+    for time in todos_times:
+        if nome_do_time.lower() in time['full_name'].lower():
+            return {'id': time['id'], 'nome': time['full_name'], 'sigla': time['abbreviation']}
     return None
 
 def calcular_jogos_casa_fora(nome_time_analisado, oponente, temporada):
