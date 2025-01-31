@@ -1,4 +1,4 @@
-from nba_api.stats.endpoints import commonplayerinfo, playergamelog
+from nba_api.stats.endpoints import commonplayerinfo, playergamelog, playercareerstats
 from nba_api.stats.static import players
 import pandas as pd
 
@@ -208,4 +208,6 @@ def calcular_desvio_padrao_jogador(nome_jogador, arquivo_csv):
     print("-" * 40)
 
 
-
+def obter_estatisticas_de_toda_a_carreira(id_jogador):
+    dados_da_carreira = playercareerstats.PlayerCareerStats(player_id=id_jogador)
+    return dados_da_carreira.get_data_frames()[0]
