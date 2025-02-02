@@ -208,6 +208,30 @@ def calcular_desvio_padrao_jogador(nome_jogador, arquivo_csv):
     print("-" * 40)
 
 
+def buscar_totais_carreira(nome_jogador):
+
+    jogador = [p for p in players.get_players() if p['full_name'].lower() == nome_jogador.lower()]
+    
+    if not jogador:
+        print(f"❌ Jogador '{nome_jogador}' não encontrado!")
+        return None, None, None
+
+    player_id = jogador[0]['id']
+
+    carreira = playercareerstats.PlayerCareerStats(player_id=player_id)
+    df = carreira.get_data_frames()[0]
+
+    total_pontos = df['PTS'].sum()
+    total_rebotes = df['REB'].sum()
+    total_assistencias = df['AST'].sum()
+
+    print(f"📊 Estatísticas de toda a carreira - {nome_jogador}:")
+    print(f"   🔹 Pontos totais: {total_pontos}")
+    print(f"   🔹 Rebotes totais: {total_rebotes}")
+    print(f"   🔹 Assistências totais: {total_assistencias}")
+
+
+
 def obter_estatisticas_de_toda_a_carreira(id_jogador):
     dados_da_carreira = playercareerstats.PlayerCareerStats(player_id=id_jogador)
     return dados_da_carreira.get_data_frames()[0]
