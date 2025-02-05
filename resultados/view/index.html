@@ -5,91 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria de Imagens</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <style>
+        .tab {
+            overflow: hidden;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Dashboard - Análise NBA</h1>
     </header>
     <div class="container">
-        <h2>Parte 1</h2>
-        <div class="gallery">
-            <h3>Gráfico de Barras Empilhado para Vitórias [Cor verde] e Derrotas [Cor vermelha]</h3>
-            <img src="../parte_1/graficos/denver_vitorias_derrotas.png" alt="denver_vitorias_derrotas">
-            <h3>Gráfico de Barras Agrupado para Vitórias em casa [Cor verde], Vitórias fora de casa [Cor azul], Derrotas em casa [Cor vermelha] e Derrotas fora de casa [Cor marrom].</h3>
-            <img src="../parte_1/graficos/denver_vitorias_derrotas_barras_agrupadas.png" alt="denver_vitorias_derrotas_barras_agrupadas">
-            <h3>Gráfico Histograma para exibir a frequência de vitórias e derrotas do time.</h3>
-            <img src="../parte_1/graficos/denver_frequencia_vitorias_derrotas_histograma.png" alt="denver_frequencia_vitorias_derrotas_histograma">
-            <h3>Gráfico de Setor [Pizza] para o percentual de para Vitórias em casa, Vitórias fora de casa, Derrotas em casa e Derrotas fora de casa.</h3>
-            <img src="../parte_1/graficos/denver_percentual_vitorias_derrotas_pizza.png" alt="denver_percentual_vitorias_derrotas_pizza">
-            <h3>Gráfico de Radar exibindo a média de pontos marcados e sofridos nos jogos em casa e fora de casa.</h3>
-            <img src="../parte_1/graficos/denver_media_pontos_marcados__casa_fora.png" alt="denver_media_pontos_marcados__casa_fora">
-            <h3>Gráfico de Linhas exibindo a sequência de vitórias e derrotas ao longo da temporada.</h3>
-            <img src="../parte_1/graficos/denver_sequencia_vitorias_derrotas_tempo.png" alt="denver_sequencia_vitorias_derrotas_tempo">
-            <h3>Gráfico de Dispersão exibindo equipes e a média de pontos marcados e sofridos durante a temporada</h3>
-            <img src="../parte_1/graficos/denver_dispersao_equipes_média_pontos_marcados_sofridos.png" alt="denver_dispersao_equipes_média_pontos_marcados_sofridos">
-            <h3>Gráfico de Pizza referentes a Tabela 5, RF6 - Temporada Atual</h3>
-            <img src="../parte_1/graficos/denver_pizza_rf6_temporada_atual.png" alt="denver_pizza_rf6_temporada_atual">
-            <h3>Gráfico de Pizza referentes a Tabela 5, RF6 - Temporada Passada</h3>
-            <img src="../parte_1/graficos/denver_pizza_rf6_temporada_passada.png" alt="denver_pizza_rf6_temporada_passada">
-            <h3>Gráfico de Pizza referentes a Tabela 6, RF7 - Temporada atual</h3>
-            <img src="../parte_1/graficos/denver_pizza_rf7_temporada_atual.png" alt="denver_pizza_rf7_temporada_atual">
-            <h3>Gráfico de Pizza referentes a Tabela 6, RF7 - Temporada Passada</h3>
-            <img src="../parte_1/graficos/denver_pizza_rf7_temporada_passada.png" alt="denver_pizza_rf7_temporada_passada">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Parte1')">Parte 1</button>
+            <button class="tablinks" onclick="openTab(event, 'Parte2')">Parte 2</button>
+            <button class="tablinks" onclick="openTab(event, 'Parte3')">Parte 3</button>
         </div>
         
-        <h2>Parte 2</h2>
-        <div class="gallery">
-            <h3>Gráfico de distribuição de pontos por jogo em relação a média, mediana e moda</h3>
-            <img src="../parte_2/graficos/distribuicao_pontos_Jamal Murray.png" alt="distribuicao_pontos_Jamal Murray">
-            <img src="../parte_2/graficos/distribuicao_pontos_Michael Porter Jr..png" alt="distribuicao_pontos_Michael Porter Jr.">
-            <img src="../parte_2/graficos/distribuicao_pontos_Nikola Jokić.png" alt="distribuicao_pontos_Nikola Jokić">
-            <img src="../parte_2/graficos/distribuicao_rebotes_Jamal Murray.png" alt="distribuicao_rebotes_Jamal Murray">
-            <img src="../parte_2/graficos/distribuicao_rebotes_Michael Porter Jr..png" alt="distribuicao_rebotes_Michael Porter Jr.">
-            <img src="../parte_2/graficos/distribuicao_rebotes_Nikola Jokić.png" alt="distribuicao_rebotes_Nikola Jokić">
-            <img src="../parte_2/graficos/distribuicao_assistências_Jamal Murray.png" alt="distribuicao_assistências_Jamal Murray">
-            <img src="../parte_2/graficos/distribuicao_assistências_Michael Porter Jr..png" alt="distribuicao_assistências_Michael Porter Jr.">
-            <img src="../parte_2/graficos/distribuicao_assistências_Nikola Jokić.png" alt="distribuicao_assistências_Nikola Jokić">
-            <h3>Gráfico BOX PLOT de pontos, rebotes e assistências por jogo [detalhar todas as informações (Max, Min, Mediana, Outliers, etc.) possíveis nos quartis]</h3>
-            <img src="../parte_2/graficos/box_plot_estatisticas_Jamal Murray.png" alt="box_plot_estatisticas_Jamal Murray">
-            <img src="../parte_2/graficos/box_plot_estatisticas_Michael Porter Jr..png" alt="box_plot_estatisticas_Michael Porter Jr.">
-            <img src="../parte_2/graficos/box_plot_estatisticas_Nikola Jokić.png" alt="box_plot_estatisticas_Nikola Jokić">
-
+        <div id="Parte1" class="tabcontent">
+            <h2>Parte 1</h2>
+            <div class="gallery">
+                <h3>Gráfico de Barras Empilhado para Vitórias [Cor verde] e Derrotas [Cor vermelha]</h3>
+                <img src="../parte_1/graficos/denver_vitorias_derrotas.png" alt="denver_vitorias_derrotas">
+                <h3>Gráfico de Barras Agrupado para Vitórias em casa [Cor verde], Vitórias fora de casa [Cor azul], Derrotas em casa [Cor vermelha] e Derrotas fora de casa [Cor marrom].</h3>
+                <img src="../parte_1/graficos/denver_vitorias_derrotas_barras_agrupadas.png" alt="denver_vitorias_derrotas_barras_agrupadas">
+                <h3>Gráfico Histograma para exibir a frequência de vitórias e derrotas do time.</h3>
+                <img src="../parte_1/graficos/denver_frequencia_vitorias_derrotas_histograma.png" alt="denver_frequencia_vitorias_derrotas_histograma">
+                <h3>Gráfico de Setor [Pizza] para o percentual de para Vitórias em casa, Vitórias fora de casa, Derrotas em casa e Derrotas fora de casa.</h3>
+                <img src="../parte_1/graficos/denver_percentual_vitorias_derrotas_pizza.png" alt="denver_percentual_vitorias_derrotas_pizza">
+                <h3>Gráfico de Radar exibindo a média de pontos marcados e sofridos nos jogos em casa e fora de casa.</h3>
+                <img src="../parte_1/graficos/denver_media_pontos_marcados__casa_fora.png" alt="denver_media_pontos_marcados__casa_fora">
+                <h3>Gráfico de Linhas exibindo a sequência de vitórias e derrotas ao longo da temporada.</h3>
+                <img src="../parte_1/graficos/denver_sequencia_vitorias_derrotas_tempo.png" alt="denver_sequencia_vitorias_derrotas_tempo">
+                <h3>Gráfico de Dispersão exibindo equipes e a média de pontos marcados e sofridos durante a temporada</h3>
+                <img src="../parte_1/graficos/denver_dispersao_equipes_média_pontos_marcados_sofridos.png" alt="denver_dispersao_equipes_média_pontos_marcados_sofridos">
+                <h3>Gráfico de Pizza referentes a Tabela 5, RF6 - Temporada Atual</h3>
+                <img src="../parte_1/graficos/denver_pizza_rf6_temporada_atual.png" alt="denver_pizza_rf6_temporada_atual">
+                <h3>Gráfico de Pizza referentes a Tabela 5, RF6 - Temporada Passada</h3>
+                <img src="../parte_1/graficos/denver_pizza_rf6_temporada_passada.png" alt="denver_pizza_rf6_temporada_passada">
+                <h3>Gráfico de Pizza referentes a Tabela 6, RF7 - Temporada atual</h3>
+                <img src="../parte_1/graficos/denver_pizza_rf7_temporada_atual.png" alt="denver_pizza_rf7_temporada_atual">
+                <h3>Gráfico de Pizza referentes a Tabela 6, RF7 - Temporada Passada</h3>
+                <img src="../parte_1/graficos/denver_pizza_rf7_temporada_passada.png" alt="denver_pizza_rf7_temporada_passada">
+            </div>
         </div>
 
-        <h2>Parte 3</h2>
-        <div class="gallery">
-            <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Nikola Jokić</h3>
-            <img src="../parte_3/graficos/ocorrencia_Pontos_Nikola Jokić.png" alt="ocorrencia_Pontos_Nikola Jokić">
-            <img src="../parte_3/graficos/ocorrencia_Rebotes_Nikola Jokić.png" alt="ocorrencia_Rebotes_Nikola Jokić">
-            <img src="../parte_3/graficos/ocorrencia_Assistências_Nikola Jokić.png" alt="ocorrencia_Assistências_Nikola Jokić">
-            <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Michael Porter Jr.</h3>
-            <img src="../parte_3/graficos/ocorrencia_Pontos_Michael Porter Jr..png" alt="ocorrencia_Pontos_Michael Porter Jr.">
-            <img src="../parte_3/graficos/ocorrencia_Rebotes_Michael Porter Jr..png" alt="ocorrencia_Rebotes_Michael Porter Jr.">
-            <img src="../parte_3/graficos/ocorrencia_Assistências_Michael Porter Jr..png" alt="ocorrencia_Assistências_Michael Porter Jr.">
-            <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Jamal Murray</h3>
-            <img src="../parte_3/graficos/ocorrencia_Pontos_Jamal Murray.png" alt="ocorrencia_Pontos_Jamal Murray">
-            <img src="../parte_3/graficos/ocorrencia_Rebotes_Jamal Murray.png" alt="ocorrencia_Rebotes_Jamal Murray">
-            <img src="../parte_3/graficos/ocorrencia_Assistências_Jamal Murray.png" alt="ocorrencia_Assistências_Jamal Murray">
-            <h3>Matriz de confusão das estatísticas acima da média (dos 3 jogadores) - Regressão linear</h3>
-            <img src="../parte_3/graficos/matriz_confusao_pontos_regressao_linear.png" alt="matriz_confusao_pontos_regressao_linear">
-            <img src="../parte_3/graficos/matriz_confusao_assistências_regressao_linear.png" alt="matriz_confusao_assistencias_regressao_linear">
-            <img src="../parte_3/graficos/matriz_confusao_rebotes_regressao_linear.png" alt="matriz_confusao_rebotes_regressao_linear">
-            <h3>Gráficos de probabilidade (histogramas de distribuição - real vs previsto) - Regressão linear</h3>
-            <img src="../parte_3/graficos/probabilidade_pontos_regressao_linear.png" alt="probabilidade_pontos_regressao_linear">
-            <img src="../parte_3/graficos/probabilidade_assistências_regressao_linear.png" alt="probabilidade_assistencias_regressao_linear">
-            <img src="../parte_3/graficos/probabilidade_rebotes_regressao_linear.png" alt="probabilidade_rebotes_regressao_linear">
-            <h3>Curva ROC - Regressão linear</h3>
-            <img src="../parte_3/graficos/curva_roc_pontos_regressao_linear.png" alt="curva_roc_pontos_regressao_linear">
-            <img src="../parte_3/graficos/curva_roc_assistências_regressao_linear.png" alt="curva_roc_pontos_regressao_assistencias">
-            <img src="../parte_3/graficos/curva_roc_rebotes_regressao_linear.png" alt="curva_roc_pontos_regressao_rebotes">
-            <h3>Gráfico de coeficientes - Regressão linear</h3>
-            <img src="../parte_3/graficos/grafico_de_coeficientes_regressao_linear.png" alt="grafico_de_coeficientes">
-            <h3>Matriz de correlação - Regressão linear</h3>
-            <img src="../parte_3/graficos/matriz_de_correlacao_regressao_linear.png" alt="matriz_de_correlacao">
+        <div id="Parte2" class="tabcontent">
+            <h2>Parte 2</h2>
+            <div class="gallery">
+                <h3>Gráfico de distribuição de pontos por jogo em relação a média, mediana e moda</h3>
+                <img src="../parte_2/graficos/distribuicao_pontos_Jamal Murray.png" alt="distribuicao_pontos_Jamal Murray">
+                <img src="../parte_2/graficos/distribuicao_pontos_Michael Porter Jr..png" alt="distribuicao_pontos_Michael Porter Jr.">
+                <img src="../parte_2/graficos/distribuicao_pontos_Nikola Jokić.png" alt="distribuicao_pontos_Nikola Jokić">
+                <img src="../parte_2/graficos/distribuicao_rebotes_Jamal Murray.png" alt="distribuicao_rebotes_Jamal Murray">
+                <img src="../parte_2/graficos/distribuicao_rebotes_Michael Porter Jr..png" alt="distribuicao_rebotes_Michael Porter Jr.">
+                <img src="../parte_2/graficos/distribuicao_rebotes_Nikola Jokić.png" alt="distribuicao_rebotes_Nikola Jokić">
+                <img src="../parte_2/graficos/distribuicao_assistências_Jamal Murray.png" alt="distribuicao_assistências_Jamal Murray">
+                <img src="../parte_2/graficos/distribuicao_assistências_Michael Porter Jr..png" alt="distribuicao_assistências_Michael Porter Jr.">
+                <img src="../parte_2/graficos/distribuicao_assistências_Nikola Jokić.png" alt="distribuicao_assistências_Nikola Jokić">
+                <h3>Gráfico BOX PLOT de pontos, rebotes e assistências por jogo [detalhar todas as informações (Max, Min, Mediana, Outliers, etc.) possíveis nos quartis]</h3>
+                <img src="../parte_2/graficos/box_plot_estatisticas_Jamal Murray.png" alt="box_plot_estatisticas_Jamal Murray">
+                <img src="../parte_2/graficos/box_plot_estatisticas_Michael Porter Jr..png" alt="box_plot_estatisticas_Michael Porter Jr.">
+                <img src="../parte_2/graficos/box_plot_estatisticas_Nikola Jokić.png" alt="box_plot_estatisticas_Nikola Jokić">
+            </div>
+
+        </div>
+        <div id="Parte3" class="tabcontent">
+            <h2>Parte 3</h2>
+            <div class="gallery">
+                <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Nikola Jokić</h3>
+                <img src="../parte_3/graficos/ocorrencia_Pontos_Nikola Jokić.png" alt="ocorrencia_Pontos_Nikola Jokić">
+                <img src="../parte_3/graficos/ocorrencia_Rebotes_Nikola Jokić.png" alt="ocorrencia_Rebotes_Nikola Jokić">
+                <img src="../parte_3/graficos/ocorrencia_Assistências_Nikola Jokić.png" alt="ocorrencia_Assistências_Nikola Jokić">
+                <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Michael Porter Jr.</h3>
+                <img src="../parte_3/graficos/ocorrencia_Pontos_Michael Porter Jr..png" alt="ocorrencia_Pontos_Michael Porter Jr.">
+                <img src="../parte_3/graficos/ocorrencia_Rebotes_Michael Porter Jr..png" alt="ocorrencia_Rebotes_Michael Porter Jr.">
+                <img src="../parte_3/graficos/ocorrencia_Assistências_Michael Porter Jr..png" alt="ocorrencia_Assistências_Michael Porter Jr.">
+                <h3>Probabilidades de ocorrência de pontuação, assistências e rebotes máximos e mínimos - Jamal Murray</h3>
+                <img src="../parte_3/graficos/ocorrencia_Pontos_Jamal Murray.png" alt="ocorrencia_Pontos_Jamal Murray">
+                <img src="../parte_3/graficos/ocorrencia_Rebotes_Jamal Murray.png" alt="ocorrencia_Rebotes_Jamal Murray">
+                <img src="../parte_3/graficos/ocorrencia_Assistências_Jamal Murray.png" alt="ocorrencia_Assistências_Jamal Murray">
+                <h3>Matriz de confusão das estatísticas acima da média (dos 3 jogadores) - Regressão linear</h3>
+                <img src="../parte_3/graficos/matriz_confusao_pontos_regressao_linear.png" alt="matriz_confusao_pontos_regressao_linear">
+                <img src="../parte_3/graficos/matriz_confusao_assistências_regressao_linear.png" alt="matriz_confusao_assistencias_regressao_linear">
+                <img src="../parte_3/graficos/matriz_confusao_rebotes_regressao_linear.png" alt="matriz_confusao_rebotes_regressao_linear">
+                <h3>Gráficos de probabilidade (histogramas de distribuição - real vs previsto) - Regressão linear</h3>
+                <img src="../parte_3/graficos/probabilidade_pontos_regressao_linear.png" alt="probabilidade_pontos_regressao_linear">
+                <img src="../parte_3/graficos/probabilidade_assistências_regressao_linear.png" alt="probabilidade_assistencias_regressao_linear">
+                <img src="../parte_3/graficos/probabilidade_rebotes_regressao_linear.png" alt="probabilidade_rebotes_regressao_linear">
+                <h3>Curva ROC - Regressão linear</h3>
+                <img src="../parte_3/graficos/curva_roc_pontos_regressao_linear.png" alt="curva_roc_pontos_regressao_linear">
+                <img src="../parte_3/graficos/curva_roc_assistências_regressao_linear.png" alt="curva_roc_pontos_regressao_assistencias">
+                <img src="../parte_3/graficos/curva_roc_rebotes_regressao_linear.png" alt="curva_roc_pontos_regressao_rebotes">
+                <h3>Gráfico de coeficientes - Regressão linear</h3>
+                <img src="../parte_3/graficos/grafico_de_coeficientes_regressao_linear.png" alt="grafico_de_coeficientes">
+                <h3>Matriz de correlação - Regressão linear</h3>
+                <img src="../parte_3/graficos/matriz_de_correlacao_regressao_linear.png" alt="matriz_de_correlacao">
+            </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2025 - Ciência de Dados NBA - By Thiago Cavalcanti e Luiz Davi</p>
     </footer>
+    <script>
+        document.getElementsByClassName("tablinks")[0].click();
+    </script>
 </body>
 </html>
